@@ -41,3 +41,24 @@ Regex language provides an operator to deal with this. It is the curly brackets 
 > `a{3}bc` is regex pattern which will match strings that start with 3 `a`'s followed by `b` followed by `c` like `aaabc`.
 
 > `a{3, 5}bc` is a regex pattern that will match with strings whose first 3 characters can be `a` or first 5 characters can be `a` and then followed by `b` and `c` like `aaabc` and `aaaaabc`
+
+## Kleene quantifier
+The `*` and `+` are called kleene operators, specifially the **kleene star** **kleene plus** operator which are used as quantifiers just like the `{}` operator.<br>
+The `*` operator precided with any character is a regex pattern that matches **0 or more** repetitions of that preciding character. `+` is for **1 or more** repetitions of the preciding character.
+> `[ab]*` is a regex pattern which is treated or evaluated as a **shorthand** for the actual regex pattern `[ab][ab][ab][ab][ab]` **and so on** or the **empty string**.
+
+ex:- 
+- 1 file found
+- 2 file found
+- 24 file found
+>  All these strings start with either one or more digits, so the pattern will start like `\d+`, then there is **space**, therefore regex becomes `\d+ `, then `\d+ file found`.
+
+## Optionality
+The `?` metacharacter allows you to optionally match the preceding character or group. It will match zero or one of the preciding character.
+> `files?`is a regex pattern that will match the strings with prefix `file` and postfix either **empty** or **s** like `files` or `file`.
+
+## Whitespace
+whitespace is matched by the metacharacter `\s` for any white space, `\t` for tab space, `\n` for new line whitespace.
+
+## Start and end of the line
+You can write a pattern that describes both the **start and end of a line** using the special `^` and `$` meta characters. This is totally different from using the `^` inside the square bracket operator `[^...]`.
